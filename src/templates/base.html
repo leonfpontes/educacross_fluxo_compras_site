@@ -6,6 +6,7 @@
     <title>{% block title %}Fluxo de Compras - Educacross{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for("static", filename="css/style.css") }}">
     <link rel="stylesheet" href="{{ url_for("static", filename="css/style_fluxo.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/style_modal.css") }}">
     <link rel="icon" href="{{ url_for("static", filename="images/favicon.png") }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,27 +33,12 @@
         </nav>
     </header>
 
-    <main class="container page-content">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="flashes">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-        {% block content %}
-        <!-- O conteúdo da página específica será inserido aqui -->
-        {% endblock %}
-    </main>
-
     <!-- Modal de Upload Global -->
     <div id="uploadModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h3>Substituir Arquivo: <span id="fileNameToReplace"></span></h3>
-            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+            <form id="uploadForm" class="modal-form" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="password">Senha:</label>
                     <input type="password" id="password" name="password" required>
@@ -68,6 +54,24 @@
             <div id="uploadMessage" style="margin-top:15px;"></div>
         </div>
     </div>
+    <!-- Modal de Upload de Arquivo -->
+
+
+    <main class="container page-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flashes">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}
+        <!-- O conteúdo da página específica será inserido aqui -->
+        {% endblock %}
+    </main>
+
 
     <footer>
         <div class="container">
