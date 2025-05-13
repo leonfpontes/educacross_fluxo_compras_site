@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Apresentação do Projeto - Fluxo de Compras{% endblock %}
+
+{% block content %}
+    <h1>Apresentação do Projeto de Implantação do Fluxo de Compras 
+        <a href="#" class="edit-icon" title="Substituir Arquivo da Apresentação" data-target-file="apresentacao_fluxo_compras.pptx" data-file-type="document">
+            ✏️
+        </a>
+    </h1>
+    <p>Este é o roteiro da apresentação utilizada para a abertura e comunicação do projeto. O arquivo original em PowerPoint (.pptx) pode ser baixado <a id="downloadLinkApresentacao" href="{{ url_for("static", filename="downloads/apresentacao_fluxo_compras.pptx") }}">aqui</a>.</p>
+    
+    <h2>Conteúdo dos Slides</h2>
+    {% include "apresentacao_conteudo.html" %}
+
+    <!-- Modal de Upload (reutilizado de base.html ou fluxo_compras_page.html se generalizado) -->
+    <!-- Se o modal não estiver em base.html, precisa ser incluído ou referenciado aqui -->
+    <!-- Para este exemplo, assumimos que o modal está em base.html ou é globalmente acessível via JS -->
+{% endblock %}
+

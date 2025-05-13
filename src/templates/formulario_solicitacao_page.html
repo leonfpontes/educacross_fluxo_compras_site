@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Formulário de Solicitação - Fluxo de Compras{% endblock %}
+
+{% block content %}
+    <h1>Formulário de Solicitação de Compra/Contratação</h1>
+    <p>Utilize o formulário abaixo para iniciar uma nova solicitação de compra ou contratação de serviço. Preencha todos os campos obrigatórios com atenção.</p>
+    
+    <!-- Formulário real será implementado na Etapa 005 -->
+    <form action="{{ url_for("submit_formulario") }}" method="post" id="formSolicitacao">
+        
+        <h2>Informações do Solicitante</h2>
+        <div class="form-group">
+            <label for="nome_solicitante">Nome Completo do Solicitante: *</label>
+            <input type="text" id="nome_solicitante" name="nome_solicitante" required>
+        </div>
+        <div class="form-group">
+            <label for="departamento_solicitante">Departamento/Setor: *</label>
+            <input type="text" id="departamento_solicitante" name="departamento_solicitante" required>
+        </div>
+        <div class="form-group">
+            <label for="contato_solicitante">Ramal/Telefone de Contato:</label>
+            <input type="text" id="contato_solicitante" name="contato_solicitante">
+        </div>
+        <div class="form-group">
+            <label for="email_solicitante">E-mail: *</label>
+            <input type="email" id="email_solicitante" name="email_solicitante" required>
+        </div>
+        <div class="form-group">
+            <label for="data_solicitacao">Data da Solicitação: *</label>
+            <input type="date" id="data_solicitacao" name="data_solicitacao" required>
+        </div>
+
+        <h2>Detalhes da Solicitação</h2>
+        <div class="form-group">
+            <label for="tipo_solicitacao">Tipo de Solicitação: *</label>
+            <select id="tipo_solicitacao" name="tipo_solicitacao" required>
+                <option value="">Selecione...</option>
+                <option value="Produto">Compra de Produto</option>
+                <option value="Serviço">Contratação de Serviço</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="descricao_item">Descrição Detalhada do Produto/Serviço: *</label>
+            <textarea id="descricao_item" name="descricao_item" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="justificativa">Justificativa da Necessidade/Objetivo: *</label>
+            <textarea id="justificativa" name="justificativa" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="quantidade">Quantidade: *</label>
+            <input type="number" id="quantidade" name="quantidade" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="unidade_medida">Unidade de Medida (ex: unidades, caixas, horas):</label>
+            <input type="text" id="unidade_medida" name="unidade_medida">
+        </div>
+        <div class="form-group">
+            <label for="custo_estimado">Estimativa de Custo Total (se souber): R$</label>
+            <input type="number" id="custo_estimado" name="custo_estimado" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="fornecedor_sugerido">Fornecedor Sugerido (se houver):</label>
+            <input type="text" id="fornecedor_sugerido" name="fornecedor_sugerido">
+        </div>
+        <div class="form-group">
+            <label for="contato_fornecedor">Contato do Fornecedor (Telefone/Email, se souber):</label>
+            <input type="text" id="contato_fornecedor" name="contato_fornecedor">
+        </div>
+        <div class="form-group">
+            <label for="data_desejada">Data Desejada para Entrega/Conclusão do Serviço:</label>
+            <input type="date" id="data_desejada" name="data_desejada">
+        </div>
+
+        <h2>Informações Adicionais (se aplicável)</h2>
+        <div class="form-group">
+            <label for="centro_custo">Projeto/Centro de Custo Associado:</label>
+            <input type="text" id="centro_custo" name="centro_custo">
+        </div>
+        <!-- Para anexos, a implementação real pode variar (upload de arquivo ou link) -->
+        <div class="form-group">
+            <label for="anexos">Anexos (Orçamentos, especificações técnicas, etc. - informar nomes ou links):</label>
+            <textarea id="anexos" name="anexos" rows="2"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar Solicitação</button>
+    </form>
+
+    <hr style="margin: 40px 0;">
+    <h2>Estrutura do Formulário (Conteúdo Original)</h2>
+    <p>Abaixo, a estrutura original do formulário como documento de referência:</p>
+    {% include "formulario_solicitacao_conteudo.html" %}
+{% endblock %}
+

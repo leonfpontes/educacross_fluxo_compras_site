@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Fluxo de Compras Detalhado - Fluxo de Compras{% endblock %}
+
+{% block content %}
+    <h1>Fluxo de Compras Detalhado</h1>
+    <h2>Fluxograma Visual 
+        <a href="#" class="edit-icon" title="Substituir Imagem do Fluxograma" data-target-file="fluxo_compras_visual.jpg" data-file-type="image">
+            ✏️ <!-- Ícone de Edição -->
+        </a>
+    </h2>
+    <p>A imagem abaixo representa o fluxo de compras de forma visual para facilitar o entendimento das etapas e responsáveis.</p>
+    <img id="fluxogramaVisual" class="flow_img" src="{{ url_for("static", filename="images/fluxo_compras_visual.jpg") }}" alt="Fluxograma do Processo de Compras" style="width: 100%; max-width: 800px; height: auto; border: 1px solid #ddd; margin-top: 10px; margin-bottom: 20px;">
+    
+    <h2>Descrição Detalhada do Fluxo</h2>
+    {% include "fluxo_compras_detalhado.html" %}
+
+    <!-- O Modal de Upload agora é global e está em base.html, removido daqui para evitar duplicidade -->
+{% endblock %}
+
