@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Fluxo de Compras - Educacross{% endblock %}</title>
@@ -11,79 +11,76 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url_for("index") }}">
-                    <img src="{{ url_for("static", filename="images/logo_placeholder.png") }}" alt="Logo da Empresa" style="height: 40px;" onerror="this.style.display='none'; this.onerror=null; const span = document.createElement('span'); span.textContent='Portal de Projetos - Fluxo de Compras'; this.parentNode.insertBefore(span, this);">
-                    <span class="brand-text">Portal de Projetos - Fluxo de Compras</span>
-                </a>
-                <ul class="navbar-nav">
-                    <li><a href="{{ url_for("index") }}">Início</a></li>
-                    <li><a href="{{ url_for("carta_abertura_page") }}">Carta de Abertura</a></li>
-                    <li><a href="{{ url_for("fluxo_compras_page") }}">Fluxo de Compras</a></li>
-                    <li><a href="{{ url_for("formulario_solicitacao_page") }}">Formulário</a></li>
-                    <li><a href="{{ url_for("modelos_email_page") }}">Modelos de E-mail</a></li>
-                    <li><a href="{{ url_for("apresentacao_page") }}">Apresentação</a></li>
-                    <li><a href="{{ url_for("planilha_rastreamento_page") }}">Planilha de Rastreamento</a></li>
-                </ul>
-            </div>
-        </nav>
+      <nav class="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url_for("index") }}">
+            <img src="{{ url_for("static", filename="images/logo_placeholder.png") }}" alt="Logo da Empresa" style="height: 40px;" onerror="this.style.display='none'; this.onerror=null; const span = document.createElement('span'); span.textContent='Portal de Projetos - Fluxo de Compras'; this.parentNode.insertBefore(span, this);">
+            <span class="brand-text">Portal de Projetos - Fluxo de Compras</span>
+          </a>
+          <ul class="navbar-nav">
+            <li>
+              <a href="{{ url_for("index") }}">Início</a>
+            </li>
+            <li>
+              <a href="{{ url_for("carta_abertura_page") }}">Carta de Abertura</a>
+            </li>
+            <li>
+              <a href="{{ url_for("fluxo_compras_page") }}">Fluxo de Compras</a>
+            </li>
+            <li>
+              <a href="{{ url_for("formulario_solicitacao_page") }}">Formulário</a>
+            </li>
+            <li>
+              <a href="{{ url_for("modelos_email_page") }}">Modelos de E-mail</a>
+            </li>
+            <li>
+              <a href="{{ url_for("apresentacao_page") }}">Apresentação</a>
+            </li>
+            <li>
+              <a href="{{ url_for("planilha_rastreamento_page") }}">Planilha de Rastreamento</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
-
     <!-- Modal de Upload Global -->
     <div id="uploadModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3>Substituir Arquivo: <span id="fileNameToReplace"></span></h3>
-            <form id="uploadForm" class="modal-form" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="fileUpload">Selecionar novo arquivo:</label>
-                    <input type="file" id="fileUpload" name="file" required>
-                    <input type="hidden" id="targetFile" name="target_file">
-                    <input type="hidden" id="fileType" name="file_type">
-                </div>
-                <button type="submit" class="btn-submit">Enviar Novo Arquivo</button>
-            </form>
-            <div id="uploadMessage" style="margin-top:15px;"></div>
-        </div>
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3>Substituir Arquivo: <span id="fileNameToReplace"></span>
+        </h3>
+        <form id="uploadForm" class="modal-form" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="fileUpload">Selecionar novo arquivo:</label>
+            <input type="file" id="fileUpload" name="file" required>
+            <input type="hidden" id="targetFile" name="target_file">
+            <input type="hidden" id="fileType" name="file_type">
+          </div>
+          <button type="submit" class="btn-submit">Enviar Novo Arquivo</button>
+        </form>
+        <div id="uploadMessage" style="margin-top:15px;"></div>
+      </div>
     </div>
     <!-- Modal de Upload de Arquivo -->
-
-
-    <main class="container page-content">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="flashes">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-        {% block content %}
-        <!-- O conteúdo da página específica será inserido aqui -->
-        {% endblock %}
+    <main class="container page-content"> {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} <div class="flashes"> {% for category, message in messages %} <div class="alert alert-{{ category }}">{{ message }}</div> {% endfor %} </div> {% endif %} {% endwith %} {% block content %}
+      <!-- O conteúdo da página específica será inserido aqui --> {% endblock %}
     </main>
-
-
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Time de Projetos Educacross. Todos os direitos reservados.</p>
-            <p>Desenvolvido por Leonardo Pontes</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 Time de Projetos Educacross. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Leonardo Pontes</p>
+      </div>
     </footer>
-
     <script type="text/javascript">
-        const UPLOAD_URL = "{{ url_for('upload_file') }}";
+      const UPLOAD_URL = "{{ url_for('upload_file') }}";
     </script>
     <script src="{{ url_for("static", filename="js/script.js") }}?v={{ cache_version }}"></script>
-</body>
+  </body>
 </html>
-

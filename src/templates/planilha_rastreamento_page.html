@@ -1,15 +1,4 @@
-{% extends "base.html" %}
-{% block title %}Planilha de Rastreamento - Fluxo de Compras{% endblock %}
-
-{% block content %}
-    <h1>Modelo de Planilha de Rastreamento de Compras 
-        <a href="#" class="edit-icon" title="Substituir Arquivo da Planilha" data-target-file="planilha_rastreamento_compras.xlsx" data-file-type="document">
-            ✏️
-        </a>
-    </h1>
-    <p>Abaixo está a estrutura sugerida para uma planilha de rastreamento das solicitações de compra. Este modelo pode ser copiado e colado em seu software de planilhas preferido (Excel, Google Sheets, etc.). O arquivo original em formato de planilha (.xlsx) pode ser baixado <a id="downloadLinkPlanilha" href="{{ url_for("static", filename="downloads/planilha_rastreamento_compras.xlsx") }}">aqui</a>.</p>
-    
-    <h2>Conteúdo da Planilha</h2>
-    {% include "planilha_rastreamento_conteudo.html" %}
-{% endblock %}
-
+{% extends "base.html" %} {% block title %}Planilha de Rastreamento - Fluxo de Compras{% endblock %} {% block content %} <h1>Modelo de Planilha de Rastreamento de Compras <a href="#" class="edit-icon" title="Substituir Arquivo da Planilha" data-target-file="planilha_rastreamento_compras.xlsx" data-file-type="document"> ✏️ </a>
+</h1>
+<p>Abaixo está a estrutura sugerida para uma planilha de rastreamento das solicitações de compra. Este modelo pode ser copiado e colado em seu software de planilhas preferido (Excel, Google Sheets, etc.). O arquivo original em formato de planilha (.xlsx) pode ser baixado <a id="downloadLinkPlanilha" href="{{ url_for("static", filename="downloads/planilha_rastreamento_compras.xlsx") }}">aqui</a>. </p>
+<h2>Conteúdo da Planilha</h2> {% include "planilha_rastreamento_conteudo.html" %} {% endblock %}
