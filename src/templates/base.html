@@ -12,44 +12,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   </head>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for("index") }}">
+          <img src="{{ url_for("static", filename="images/logo_placeholder.png") }}" alt="Logo da Empresa" style="height: 40px;" onerror="this.style.display='none'; this.onerror=null; const span = document.createElement('span'); span.textContent='Portal de Projetos - Fluxo de Compras'; this.parentNode.insertBefore(span, this);">
+          <span class="brand-text">Portal de Projetos - Fluxo de Compras</span>
+        </a>
+        <ul class="navbar-nav">
+          <li>
+            <a href="{{ url_for("index") }}">Início</a>
+          </li>
+          <li>
+            <a href="{{ url_for("carta_abertura_page") }}">Carta de Abertura</a>
+          </li>
+          <li>
+            <a href="{{ url_for("fluxo_compras_page") }}">Fluxo de Compras</a>
+          </li>
+          <li>
+            <a href="{{ url_for("formulario_solicitacao_page") }}">Formulário</a>
+          </li>
+          <li>
+            <a href="{{ url_for("modelos_email_page") }}">Modelos de E-mail</a>
+          </li>
+          <li>
+            <a href="{{ url_for("apresentacao_page") }}">Apresentação</a>
+          </li>
+          <li>
+            <a href="{{ url_for("planilha_rastreamento_page") }}">Planilha de Rastreamento</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <body>
-    <header>
-      <nav class="navbar">
-        <div class="container">
-          <a class="navbar-brand" href="{{ url_for("index") }}">
-            <img src="{{ url_for("static", filename="images/logo_placeholder.png") }}" alt="Logo da Empresa" style="height: 40px;" onerror="this.style.display='none'; this.onerror=null; const span = document.createElement('span'); span.textContent='Portal de Projetos - Fluxo de Compras'; this.parentNode.insertBefore(span, this);">
-            <span class="brand-text">Portal de Projetos - Fluxo de Compras</span>
-          </a>
-          <ul class="navbar-nav">
-            <li>
-              <a href="{{ url_for("index") }}">Início</a>
-            </li>
-            <li>
-              <a href="{{ url_for("carta_abertura_page") }}">Carta de Abertura</a>
-            </li>
-            <li>
-              <a href="{{ url_for("fluxo_compras_page") }}">Fluxo de Compras</a>
-            </li>
-            <li>
-              <a href="{{ url_for("formulario_solicitacao_page") }}">Formulário</a>
-            </li>
-            <li>
-              <a href="{{ url_for("modelos_email_page") }}">Modelos de E-mail</a>
-            </li>
-            <li>
-              <a href="{{ url_for("apresentacao_page") }}">Apresentação</a>
-            </li>
-            <li>
-              <a href="{{ url_for("planilha_rastreamento_page") }}">Planilha de Rastreamento</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
     <!-- Modal de Upload Global -->
     <div id="uploadModal" class="modal" style="display:none;">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
+        <div  class="modal-header">
+          <span class="modal-title">Upload de Arquivo</span>
+          <button class="close-button" id="closeModal">&times;</button>
+        </div>
         <h3>Substituir Arquivo: <span id="fileNameToReplace"></span>
         </h3>
         <form id="uploadForm" class="modal-form" method="POST" enctype="multipart/form-data">

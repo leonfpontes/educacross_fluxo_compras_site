@@ -6,6 +6,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    z-index: 900;
 }
 
 .container {
@@ -18,11 +19,11 @@ body {
 
 /* Cabeçalho e Navegação */
 header {
-    background: #009CA3; /* Cor escura para o cabeçalho, similar ao roxo escuro da Educacross */
+    background: #009CA3;
     color: #fff;
     padding-top: 20px;
     min-height: 70px;
-    border-bottom: #105056 3px solid; /* Azul claro para um detalhe, ajustar conforme cores da Educacross */
+    border-bottom: #105056 3px solid;
 }
 
 header a {
