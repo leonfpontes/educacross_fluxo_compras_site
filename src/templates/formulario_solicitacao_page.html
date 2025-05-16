@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% block title %}Formulário de Solicitação - Fluxo de Compras{% endblock %} {% block content %} <h1>Formulário de Solicitação de Compra/Contratação</h1>
-<p>Utilize o formulário abaixo para iniciar uma nova solicitação de compra ou contratação de serviço. Preencha todos os campos obrigatórios com atenção.</p>
+{% extends "base.html" %} {% block title %}Formulário de Solicitação - Fluxo de Compras{% endblock %} {% block content %} <h1>Formulários de Solicitação</h1>
+<p>Utilize os formulários abaixo para iniciar uma nova solicitação de materiais ou para solicitação de compra ou contratação de serviço. Preencha todos os campos obrigatórios com atenção.</p>
 <!-- Formulário real será implementado na Etapa 005 -->
-<form action="{{ url_for("submit_formulario") }}" method="post" id="formSolicitacao">
+<!-- <form action="{{ url_for("submit_formulario") }}" method="post" id="formSolicitacao">
   <h2>Informações do Solicitante</h2>
   <div class="form-group">
     <label for="nome_solicitante">Nome Completo do Solicitante: *</label>
@@ -65,13 +65,11 @@
     <label for="centro_custo">Projeto/Centro de Custo Associado:</label>
     <input type="text" id="centro_custo" name="centro_custo">
   </div>
-  <!-- Para anexos, a implementação real pode variar (upload de arquivo ou link) -->
   <div class="form-group">
     <label for="anexos">Anexos (Orçamentos, especificações técnicas, etc. - informar nomes ou links):</label>
     <textarea id="anexos" name="anexos" rows="2"></textarea>
   </div>
   <button type="submit" class="btn-submit">Enviar Solicitação</button>
 </form>
-<hr style="margin: 40px 0;">
-<h2>Estrutura do Formulário (Conteúdo Original)</h2>
-<p>Abaixo, a estrutura original do formulário como documento de referência:</p> {% include "formulario_solicitacao_conteudo.html" %} {% endblock %}
+<hr style="margin: 40px 0;"> -->
+{% include "formulario_solicitacao_conteudo.html" %} {% endblock %}
